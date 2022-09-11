@@ -1,13 +1,10 @@
-
-from asyncore import write
-from pydoc import html
+  
 import requests
 import csv
-
 from bs4 import BeautifulSoup
 import sqlite3
 
-CSV = 'csv.shop'
+CSV = 'shop.csv'
 database = sqlite3.connect('Parser.db')
 Sql = database.cursor()
  
@@ -121,17 +118,17 @@ while True:
             writer = csv.writer(file, delimiter=';')
             writer.writerow(['pucture', 'title', 'link', 'price', 'location', 'description','bedroom', 'date'])
             for item in items:
-                writer.writerow(item['image'],
+                writer.writerow([item['image'],
                 item['title'],item['link'],item['price'],item['location'],
                 item['description'],item['bedroom'],
-                item['date'] 
+                item['date']]
                 )
 
          
            
     
     def parser():
-        PAGENATION = input("Укажите количечтва страниц для Parsinga")
+        PAGENATION = input("Укажите количечтва страниц для Parsinga>")
         PAGENATION = int(PAGENATION.strip())
             
         htmls = get_html(URL)
@@ -139,7 +136,7 @@ while True:
         if htmls.status_code == 200:
             cards = []
             for page in range(1, PAGENATION+1):
-                print(f'strt parsing{page}')
+                print(f'start parsing>{page}')
                 html = get_html(URL)
                 cards.extend(get_content(html.text))
                 save_dock(cards, CSV)
