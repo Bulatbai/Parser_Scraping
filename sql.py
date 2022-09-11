@@ -32,3 +32,18 @@ database.commit()
 # if Sql.fetchone() is None:
 #     Sql.execute(f"INSERT INTO users VALUES  (?, ?, ?, ?, ?, ?, ?, ?, ?)",
 #             (id, image, title, link, location, date, bed, description, price ))
+
+
+# class Parsing:
+    
+page = int(input('Укажите количечтва страниц>>'))
+ 
+    # def __init__(self, image, title, link, location, date, description, bed, price ):
+    #     self.image =  image
+    #     self.title = title
+    #     self.link = link
+    #     self.location = location
+    #     self.date = date
+    #     self.description = description
+    #     self.bed = bed
+    #     self.price = price
