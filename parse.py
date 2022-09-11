@@ -88,17 +88,20 @@ while True:
             print(date)
             min = []
             lin = []
-            datek = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 minute ago','< 1 minute ago','< 6 minutes ago','< 7 minutes ago'
+            # datek = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 minute ago','< 1 minute ago','< 6 minutes ago','< 7 minutes ago'
 
 
-            # for i in datek:
+         
             if date[0+1] in 'minute ago' and  'hours ago':
                 min.append(date)
             else:
                 lin.append(date)
-
+            import datetime
+            d1 = datetime.datetime.now()
+      
+ 
             for i in min:
-                mins = i.replace(i, '12/09/2022')
+                mins = i.replace(i, f'{d1}')
                 lin.append(mins)
 
             for dates in lin:

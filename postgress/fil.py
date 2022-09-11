@@ -56,25 +56,49 @@
 #     mins = i.replace(i, '12/12/12')
 #     lin.append(mins)
 # print(lin)
+import datetime
 min = []
 lin = []
-date = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 minute ago','< 1 minute ago','< 6 minutes ago','< 7 minutes ago'
+min1 = []
+lin1 = []
+date = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 hours ago',\
+'< 1 minute ago','< 6 minutes ago','< 7 minutes ago','< 20 hours ago',\
+'< 13 hours ago', '< 12 hours ago',
 
+# for i in date:
+#     if i[0+1] in 'minute ago' and  'hours ago':
+#           min.append(i)
+#     else:
+#           lin.append(i)
 
+ 
 for i in date:
-    if i[0+1] in 'minute ago' and  'hours ago':
-          min.append(i)
-    else:
-          lin.append(i)
+      if i[0+1] in f'<  hours ago':
+         min.append(i)
+      else:
+         lin.append(i)
 
-for i in min:
-    mins = i.replace(i, '12/12/12')
-    lin.append(mins)
+ 
 
-for dates in lin:
-      pass
- 
- 
- 
+
+
+d1 = datetime.datetime.now()
+d2 = datetime.timedelta()
+print(type(d1))
             
      
+       
+# m = []
+# for i in range(1,100+1):
+#       m.append(str(i))
+# print(m)
+
+print(min)
+for i in min:
+    mins = i.replace(i, f'{d1}')
+    lin.append(mins)
+print(lin)
+for dates in lin:
+      pass
+
+ 
