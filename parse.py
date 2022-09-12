@@ -3,7 +3,7 @@ import requests
 import csv
 from bs4 import BeautifulSoup
 import sqlite3
-
+import datetime
 CSV = 'csv.shop'
 database = sqlite3.connect('Parser.db')
 Sql = database.cursor()
@@ -23,14 +23,9 @@ Sql.execute(
     )
     """
 )
+
+
 database.commit()
-
-
- 
-
-
-
-
 HOST = 'https://www.kijiji.ca'
 HOSTS = 'https://media.kijiji.ca/api/v1/ca-prod-dealer-ads'
 HEADERS = {
@@ -39,15 +34,10 @@ HEADERS = {
 }   
 
  
-    
 
- 
- 
-
-
-page = int(input('Укажите количечтва страниц до 93>>'))
+page = int(input('Укажите количечтва страниц до 93 parse in migrate dtabase>>'))
 while True:
-  
+
     URL = 'https://www.kijiji.ca/b-apartments-condos/city-of-toronto/page-'+ str(page) + '/c37l1700273'
     page -= 1
     if page == -1:
@@ -85,18 +75,15 @@ while True:
             description += (item.find('div', class_='description').get_text(strip=True))
             price += (item.find('div', class_='price').get_text(strip=True))
             
-            print(date)
+            # print(date) 
             min = []
             lin = []
-            # datek = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 minute ago','< 1 minute ago','< 6 minutes ago','< 7 minutes ago'
-
-
-         
+    
             if date[0+1] in 'minute ago' and  'hours ago':
                 min.append(date)
             else:
                 lin.append(date)
-            import datetime
+         
             d1 = datetime.datetime.now()
       
  
@@ -146,7 +133,7 @@ while True:
            
     
     def parser():
-        PAGENATION = input("Укажите количечтва страниц до 93 для Parsinga>")
+        PAGENATION = input("Укажите количечтва страниц до 93 для Parsinga in CSV>")
         PAGENATION = int(PAGENATION.strip())
             
         htmls = get_html(URL)
