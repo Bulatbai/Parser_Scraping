@@ -30,75 +30,117 @@
 
 # database.commit()
  
-
-
-# m = 0
-# mil = ['1','2','3','4','5','25','3','45']
-# mil = ['minute ago', 'hours ago']
+ 
+ 
+# from ast import While
+import datetime
 # min = []
 # lin = []
-# date = [['09/09/2022'],['08/09/2022'],['13/08/2022'],['29/08/2022'],['30/08/2022'],['< 35 minute ago'],['< 1 minute ago'],['< 6 minutes ago'],['< 7 minutes ago']]
-
-# m += len(date)
- 
-# for i in date:
-#     for l in i:
-#         # print(l)
-#         if l[m-1] in 'minute ago' and  'hours ago':
-#             min.append(l)
-#         else:
-#             lin.append(l)
-            
-             
-            
- 
-# for i in min:
-#     mins = i.replace(i, '12/12/12')
-#     lin.append(mins)
-# print(lin)
-import datetime
-min = []
-lin = []
-min1 = []
-lin1 = []
-date = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 hours ago',\
-'< 1 minute ago','< 6 minutes ago','< 7 minutes ago','< 20 hours ago',\
-'< 13 hours ago', '< 12 hours ago',
-
-# for i in date:
-#     if i[0+1] in 'minute ago' and  'hours ago':
-#           min.append(i)
-#     else:
-#           lin.append(i)
-
- 
-for i in date:
-      if i[0+1] in f'<  hours ago':
-         min.append(i)
-      else:
-         lin.append(i)
+# min1 = []
+# m  = [] 
+# lin1 = []
 
  
 
-
-
-d1 = datetime.datetime.now()
-d2 = datetime.timedelta()
-print(type(d1))
-            
-     
+# minute = []
+dates = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 hours ago',\
+'< 1 minutes ago','< 6 minutes ago','< 7 minutes ago','< 20 hours ago',\
+'< 13 hours ago', '< 12 hours ago','< 2 hours ago', '< 10 minutes ago'
+# all = []
+# ones = []
+# strings = []
+# def set_up_date(date):
+#    for i in date:
+#       if i[0+1] in f'<  hours ago':
+#          min.append(i)
+#       else:
+#          lin.append(i)
+#    for i in  min:
+#       mins = i.replace(f'hours ago',  '')
+#       min1.append(mins)
+#    for i in min1:
+#       mins3 = i.replace(f'<', '')
+#       minute.append(mins3)
+#    for i in minute:
+#       strings.append(i[::-1])
+#    for i in strings:
+#       if i[0+1] in 'oga setunim':
+#          all.append(i)
+#       else:
+#          ones.append(i)
+#    for i in ones:
+#       m.append(int(i[::-1]))
+#    d1 = datetime.date.today()
+#    d = 0
+#    for i in m:
        
-# m = []
-# for i in range(1,100+1):
-#       m.append(str(i))
-# print(m)
+     
+#       print(i)
+   
+       
+       
+#    return date
+   
+# set_up_date(dates)
 
-print(min)
-for i in min:
-    mins = i.replace(i, f'{d1}')
-    lin.append(mins)
-print(lin)
-for dates in lin:
-      pass
+hoursago = []
+normformat_date = []
+better = []
+bigfree = []
+MInutes = []
+Hours = []
+def SetUp(datess):
+   for i in datess:
+      if i[0+1] in '< hours ago':
+         hoursago.append(i)
+      else:
+         normformat_date.append(i)
+   
+   for i in hoursago:
+      better.append(i.replace('hours ago', '',))
+  
+   print(better)
+   for i in better:
+       bigfree.append(i[::-1].replace('<', ''))
+   MInutess = []
+   for i in bigfree:
+      MInutess.append(int(i[::-1].replace('minutes ago', '')))
+   print(MInutess)
+
+    
+   for i in bigfree:
+      if i[0+1] in 'oga setunim':
+         MInutes.append(int(i[::-1].replace('minutes ago', '')))
+   
+      else:
+         Hours.append(int(i[::-1]))
+   
+   print(Hours)
+   print(MInutes)
+   print(normformat_date)
 
  
+    
+SetUp(dates)
+
+
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+
+
+
+
+
+ 
+ 
+
+      
+
+
