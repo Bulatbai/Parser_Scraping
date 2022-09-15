@@ -33,7 +33,7 @@
  
  
 # from ast import While
-import datetime
+
 # min = []
 # lin = []
 # min1 = []
@@ -43,9 +43,9 @@ import datetime
  
 
 # minute = []
-dates = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 hours ago',\
-'< 1 minutes ago','< 6 minutes ago','< 7 minutes ago','< 20 hours ago',\
-'< 13 hours ago', '< 12 hours ago','< 2 hours ago', '< 10 minutes ago'
+# dates = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 24 hours ago',\
+# '< 1 minutes ago','< 6 minutes ago','< 7 minutes ago','< 20 hours ago',\
+# '< 13 hours ago', '< 12 hours ago','< 2 hours ago', '< 10 minutes ago'
 # all = []
 # ones = []
 # strings = []
@@ -75,20 +75,42 @@ dates = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 35 h
 #    for i in m:
        
      
-#       print(i)
-   
-       
-       
+#   print(i)
+        
 #    return date
+# set_up_date(dates) 
+# 
+
+
+   # for i in bigfree:
+   #    if i[0+1] in 'oga setunim':
+   #       MInutes.append(int(i[::-1].replace('minutes ago', '')))
    
-# set_up_date(dates)
+   #    else:
+   #       Hours.append(int(i[::-1]))
+   
+ 
+ 
+
+    
+
+
+
+
+
+
+
+
+import datetime
+
+dates = '09/09/2022','08/09/2022','13/08/2022','29/08/2022','30/08/2022','< 24 hours ago',\
+'< 1 minutes ago','< 6 minutes ago','< 7 minutes ago','< 20 hours ago',\
+'< 13 hours ago', '< 12 hours ago','< 2 hours ago', '< 10 minutes ago'
 
 hoursago = []
 normformat_date = []
 better = []
 bigfree = []
-MInutes = []
-Hours = []
 def SetUp(datess):
    for i in datess:
       if i[0+1] in '< hours ago':
@@ -99,29 +121,38 @@ def SetUp(datess):
    for i in hoursago:
       better.append(i.replace('hours ago', '',))
   
-   print(better)
+  
    for i in better:
        bigfree.append(i[::-1].replace('<', ''))
    MInutess = []
-   for i in bigfree:
-      MInutess.append(int(i[::-1].replace('minutes ago', '')))
-   print(MInutess)
 
-    
    for i in bigfree:
-      if i[0+1] in 'oga setunim':
-         MInutes.append(int(i[::-1].replace('minutes ago', '')))
+      MInutess.append(int(i[::-1].replace(' minutes ago', '00')))
+   data3 = datetime.datetime.now()
+   print(data3)
+   data = datetime.date.fromordinal(738412)
+   print(data.strftime("%d/%m/%Y"))
+   OST = [int(i/100) for i in MInutess   if i > 24 ]
+   print(OST)
+   OSTI = []
    
-      else:
-         Hours.append(int(i[::-1]))
+   for i in MInutess:
+      OSTI = int(i/100) if i > 24 else i * 1
+      data = datetime.date.fromordinal(738412)
+      OSTT = datetime.date.fromordinal(int(738412-i) if i > 24 else 738412-i)
+      normformat_date.append(OSTT.strftime("%d/%m/%Y"))
    
-   print(Hours)
-   print(MInutes)
-   print(normformat_date)
+   return datess
+SetUp(dates)  
+        
+
+
+  
+
 
  
     
-SetUp(dates)
+
 
 
  
